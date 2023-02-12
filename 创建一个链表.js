@@ -12,4 +12,6 @@ function createList(arr){
     }
     return head;
 }
+// 测试用法
+// console.log(createList([1,3,4,5]))
  
