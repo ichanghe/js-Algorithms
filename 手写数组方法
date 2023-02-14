@@ -1,0 +1,109 @@
+Array.prototype.myForEach = function (fn) {
+  var thisObj = arguments[1] || window
+  for (let i = 0; i < this.length; i++) {
+    fn.apply(thisObj, [this[i], i, this])
+  }
+}
+
+
+Array.prototype.myMap = function (cb) {
+  var thisObj = arguments[1] || window
+  var _newArr = [];
+  var _item;
+  var _res;
+  for (let i = 0; i < this.length; i++) {
+    _item = deepClone(this[i])
+    _res = cb.apply(thisObj, [_item, i, this])
+    _res && _newArr.push(_res)
+  }
+  return _newArr;
+}
+
+Array.prototype.myFilter = function (fn) {
+  var thisObj = arguments[1] || window
+  var _newArr = [];
+  for (let i = 0; i < this.length; i++) {
+    var _item = JSON.parse(JSON.stringify(this[i]))
+    fn.apply(thisObj, [_item, i, this]) ? _newArr.push(_item) : ''
+  }
+  return _newArr;
+}
+Array.prototype.mySome = function (fn) {
+  var args = arguments[1] || window
+  var status = false
+  for (let i = 0; i < this.length; i++) {
+    let result = fn.apply(args, [this[i], i, this])
+    if (result) status = true
+  }
+  return status
+}
+
+Array.prototype.myEvery = function (cb) {
+  var args = arguments[1] || window
+  for (let i = 0; i < this.length; i++) {
+    let result = cb.apply(args, [_arr[i], i, this])
+    if (!result) return false
+  }
+  return true
+}
+
+Array.prototype.mySlice = function (start, end) {
+  var result = new Array();
+  start = start || 0;
+  end = end || this.length; //this指向调用的对象，当用了call后，能够改变this的指向，也就是指向传进来的对象，这是关键
+  for (var i = start; i < end; i++) {
+    result.push(this[i]);
+  }
+  return result;
+};
+
+
+Array.prototype.myReduce = function (fn, initialValue) {
+
+  if (typeof fn !== 'function') {
+    throw new Error(`${fn} 不是一个函数`)
+  }
+  if (!Array.isArray(this)) {
+    throw new Error(`this 不是数组`)
+  }
+  const arr = Object(this)
+  if (!arr.length) {
+    // 对于空数组是不会执行回调函数的
+    return
+  }
+  // initialValue 有初始值时 accumulator为initialValue从0开始循环赋值；
+  // initialValue 无初始值时 arr[0]为initialValue  从1开始循环
+  let accumulator = initialValue || arr[0]
+  let i = initialValue ? 0 : 1
+  for (; i < arr.length; i++) {
+    accumulator = fn(accumulator, arr[i], i, arr)
+  }
+  return accumulator
+}
+
+Array.prototype.myReduce = function (cb, initialValue) {
+  var _arr = this
+  var _length = _arr.length
+  for (var i = _length; i > 0; i--) {
+    initialValue = cb.apply(null, [inititalValue,])
+  }
+  return initialValue
+}
+
+Array.prototype.myFindIndex = function (callback) {
+  // var callback = function (item, index) { return item.id === 4 }
+  for (var i = 0; i < this.length; i++) {
+    if (callback(this[i], i)) {
+      // 这里返回
+      return i
+    }
+  }
+}
+Array.prototype.myFind = function (callback) {
+  // var callback = function (item, index) { return item.id === 4 }
+  for (var i = 0; i < this.length; i++) {
+    if (callback(this[i], i)) {
+      return this[i]
+    }
+  }
+}

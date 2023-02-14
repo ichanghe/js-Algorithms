@@ -1,3 +1,11 @@
+/*
+push
+pop
+peek
+clear
+size
+isEmpty
+*/
 class Stack {
   constructor() {
     this.items = [];

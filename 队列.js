@@ -1,3 +1,12 @@
+/*
+front
+enqueue
+dequeue
+toString
+size
+isEmpty
+ * 
+ */
 class Queue {
   constructor() {
     this.items = [];
