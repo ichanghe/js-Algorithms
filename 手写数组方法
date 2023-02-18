@@ -107,3 +107,22 @@ Array.prototype.myFind = function (callback) {
     }
   }
 }
+Array.prototype.myEntries = function () {
+  const O = Object(this);
+  let index = 0;
+  const length = O.length;
+  function next() {
+    if (index < length) {
+      return { value: [index, O[index++]] }
+    }
+    return { value: undefined, done: true }
+  }
+  return {
+    next,
+    [Symbol.iterator]() {
+      return {
+        next
+      }
+    }
+  }
+}
