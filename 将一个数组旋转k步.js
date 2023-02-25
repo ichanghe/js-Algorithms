@@ -14,3 +14,7 @@ let arr = [1, 2, 3, 4];
 const log = console.log;
 log(rotate(arr, 2));
 log(rotate(arr, 5));
+
+//
+log(1 % 5);
+log(5 % 2);
