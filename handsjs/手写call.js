@@ -1,5 +1,5 @@
 Function.prototype.myCall = function (context, ...params) {
-  context ? Object(context) : window
+  context = context ? Object(context) : window
   let fn = Symbol();
   context[fn] = this;
   let result = context[fn](...params);
