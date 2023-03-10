@@ -18,6 +18,7 @@ function preOrderTraverse(node) {
   preOrderTraverse(node.left);
   preOrderTraverse(node.right);
 }
+// 中序遍历
 function inOrderTraverse(node) {
   if (node == null) return;
   inOrderTraverse(node.left);
@@ -32,4 +33,4 @@ function postOrderTraverse(node) {
   postOrderTraverse(node.right);
   console.log(node.value);
 }
-preOrderTraverse(bst);
+inOrderTraverse(bst);

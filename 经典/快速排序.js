@@ -1,3 +1,4 @@
+// n*logn
 function quickSort(arr) {
   const length = arr.length;
   if (length === 0) return arr;

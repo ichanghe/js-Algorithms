@@ -14,3 +14,5 @@ function format(n) {
     }
   }, "");
 }
+let num = 2334412313;
+console.log(format(num));
