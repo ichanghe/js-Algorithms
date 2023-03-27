@@ -1,0 +1,22 @@
+{
+  "name": "js-algorithms",
+  "version": "1.0.0",
+  "description": "算法学习 和 基础的js学习",
+  "main": "index.js",
+  "scripts": {
+    "test": "promises-aplus-tests ./handsjs/promise.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ichanghe/js-Algorithms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ichanghe/js-Algorithms/issues"
+  },
+  "homepage": "https://github.com/ichanghe/js-Algorithms#readme",
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  }
+}
